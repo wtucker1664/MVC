@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  php-apache-environment:
+    tty: true
+    container_name: php-apache
+    image: php:8.0-apache
+    volumes:
+      - ./src:/var/www/html/
+    ports:
+      - 8000:80
+    #command: ["bash", "-c", "a2enmod rewrite"]
+  mysql:
+    image: mysql:5.7
+    env_file: 
+      - ./env/mysql.env
