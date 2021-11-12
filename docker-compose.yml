@@ -1,9 +1,8 @@
 version: '3.3'
 services:
   php-apache-environment:
-    tty: true
+    build: ./
     container_name: php-apache
-    image: php:8.0-apache
     volumes:
       - ./src:/var/www/html/
     ports:
@@ -13,3 +12,5 @@ services:
     image: mysql:5.7
     env_file: 
       - ./env/mysql.env
+    ports:
+      - 3306:3306
